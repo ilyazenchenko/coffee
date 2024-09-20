@@ -17,11 +17,19 @@ public class IngredientsController {
 
     private final IngredientsService ingredientsService;
 
+    /**
+     *  получить кол-во всех ингредиентов в машине
+     * @return список ингредиентов
+     */
     @GetMapping
     public ResponseEntity<List<Ingredient>> getAll() {
         return new ResponseEntity<>(ingredientsService.findAll(), HttpStatus.OK);
     }
 
+    /**
+     * Перезаполнить все ингредиенты
+     * @return сообщение
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public Map<String, String> refillAll() {
